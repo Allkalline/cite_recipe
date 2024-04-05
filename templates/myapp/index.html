@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Главная страница{% endblock %}
+
+{% block content %}
+    <h1>Случайные рецепты</h1>
+    <ul style="padding: 0; list-style: none;">
+        {% for recipe in recipes %}
+            <li style="padding: 10px; border: 1px solid #ccc; margin-bottom: 10px; border-radius: 5px; background-color: #f9f9f9;">
+                <a style="text-decoration: none; color: #333; display: block; " href="{% url 'recipe_detail' recipe.id %}">
+                    {{ recipe.title }} - {{ recipe.description }} - <img style="margin-left: 10px;"
+                        src="{{ recipe.image }}" alt="Фото блюда" width="100"></a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

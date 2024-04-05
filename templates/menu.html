@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        nav a {
+            color: white;
+            padding: 14px 16px;
+            text-decoration: none;
+            float: left;
+        }
+
+        nav a:hover {
+            background-color: #555;
+        }
+
+    </style>
+</head>
+<body>
+<nav>
+    <a href="{% url 'index' %}">Главная</a>
+    <a href="{% url 'add_recipe' %}">Добавить рецепт</a>
+    <a href="{% url 'read_all_recipes' %}">Все рецепты</a>
+    
+    <!-- Другие ссылки на ваш выбор -->
+</nav>
+</body>
+</html>
+
+

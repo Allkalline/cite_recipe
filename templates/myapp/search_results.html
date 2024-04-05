@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}Результаты поиска{% endblock %}
+
+
+{% block content %}
+     {% if recipes_count == 0 %}
+        <p>Ничего не найдено</p>
+    {% else %}
+        <ul>
+            {% for recipe in recipes %}
+                <li style="padding: 10px; border: 1px solid #ccc; margin-bottom: 10px; border-radius: 5px; background-color: #f9f9f9;">
+                    <a href="{% url 'recipe_detail' recipe.id %}">
+                    {{ recipe.title }} - {{ recipe.description }} - <img src="{{ recipe.image }}" alt="" width="200">
+
+                </a></li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock %}

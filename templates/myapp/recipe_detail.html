@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+
+    {% endif %}
+    <h1>{{ recipe.title }}</h1>
+    <img src="{{ recipe.image }}" alt="Фото блюда" width="300">
+    <h3>Описание</h3>
+    <p>{{ recipe.description }}</p>
+
+    <h3>Шаги приготовления</h3>
+    <p>{{ recipe.steps }}</p>
+
+    <h3>Время приготовления</h3>
+    <p>{{ recipe.time }}</p>
+    <h3>Категория</h3>
+    <p>{{ categ }}</p>
+    <h3>Автор</h3>
+    <p>{{ recipe.author }}</p>
+
+
+
+    <a href="{% url 'edit_recipe' recipe.id %}">Редактировать рецепт</a>
+
+
+{% endblock %}

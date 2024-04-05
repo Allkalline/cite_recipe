@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <form action="" method="post" enctype="multipart/form-data" style="   max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 5px;">
+        {% csrf_token %}
+        {{ form.as_div }}
+        {% if form.as_div %}
+        <input type="submit" value="Сохранить">
+        {% endif %}
+    </form>
+
+
+    <br>
+    <form action="">
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+    
+            {% if recipe %}
+
+                <li style="padding: 10px; border: 1px solid #ccc; margin-bottom: 10px; border-radius: 5px; background-color: #f9f9f9;">
+                    <a href="{% url 'recipe_detail' recipe.id %}"
+                    style="text-decoration: none; color: #333; display: block; " href="{% url 'recipe_detail' recipe.id %}">
+                        {{ recipe.title }}</a></li>
+                
+                <img src="{{ recipe.image }}" alt="Фото блюда" width="300">
+                    {% endif %}
+            {% endif %}
+        <br>
+        <a href="{% url 'add_recipe' %}">Назад</a>
+    </form>
+
+
+{% endblock %}

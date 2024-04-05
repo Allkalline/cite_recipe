@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Регистрация{% endblock %}
+
+{% block content %}
+    <form method="post" style="   max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 5px;">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Зарегистрироваться</button>
+    </form>
+{% endblock %}
